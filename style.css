@@ -1,0 +1,129 @@
+* {
+    margin: 0;
+}
+
+body {
+    font-family: "Roboto", sans-serif;
+}
+
+.navbar {
+height: 50px;
+width: 100%;
+background-color: black;
+}
+
+.navbar-container {
+    display: flex;
+    align-items: center;
+    /* background-color: whitesmoke; */
+    padding: 0 50px;
+    height: 100%;
+}
+
+
+.logo-container {
+ flex: 1;
+ background-color: black ;
+}
+
+.logo {
+    font-family: "Roboto", sans-serif;
+    color: whitesmoke;
+    font-size: 30px;
+}
+
+.main-menu-container {
+    flex: 5;
+    height: 32px;
+    justify-content: space-around;
+    background-color: rgb(211, 6, 6);
+}
+
+.menu-list {
+    display: flex;
+    list-style: none;
+    margin-top: 1%;
+    justify-content: space-around;
+}
+
+.menu-list-items {
+    margin-right: 30px;
+}
+
+.menu-list-items.active {
+    font-weight: bold;
+}
+
+.profile-container {
+    flex: 2;
+    display: flex;
+    background-color: green;
+    align-items: center;
+    justify-content: flex-end;
+
+}
+
+.profile-picture {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.profile-text-container {
+    margin: 0 20px;
+}
+
+.toggle {
+    width: 40px;
+    height: 20px;
+    background-color: white;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    position: relative; /* Allows the child toggle-ball-light to respond*/
+}
+
+.toggle-icon {
+    color: gold;
+}
+
+.toggle-ball-light {
+    width: 18px;
+    height: 18px;
+    background-color: black;
+    position: absolute;
+    right: 1px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: 1s ease all;
+}
+
+.sidebar {
+    height: 100%;
+    width: 50px;
+    position: fixed;
+    top: 0; /* keeps the sidebar from scrolling */
+    background-color: black;
+    align-items: center;
+    display:flex; 
+    flex-direction: column;
+    padding-top: 60px;
+}
+
+.sidebar-icon {
+    color: aliceblue;
+    font-size: 25px;
+    margin-bottom: 80px;
+}
+
+.container {
+    background-color: #151515;
+    height: calc(100vh - 50px);
+}
+
+.window-container {
+    color: aliceblue;
+    margin-left: 50px;
+} 
