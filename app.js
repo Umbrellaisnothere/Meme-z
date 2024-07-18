@@ -1,102 +1,104 @@
+  // Event Listener for DOM Content Loaded
 document.addEventListener("DOMContentLoaded", () => {
-    // Fetch memes and videos from the JSON server
-    fetchMemes();
-    fetchVideos();
+  // Variables
+  const memeList = document.getElementById('meme-list');
+  const memeForm = document.getElementById('meme-form');
+  const titleInput = document.getElementById('title');
+  const urlInput = document.getElementById('url');
   
-    // Event listeners for dark/light mode toggle
-    const toggleBall = document.querySelector('.toggle-ball-light');
-    toggleBall.addEventListener('click', toggleTheme);
-  });
-  
-  // Fetch memes from the server
-  function fetchMemes() {
-    fetch('http://localhost:3000/memes')
+  const API_URL = 'http://localhost:3000/memes';
+
+  // Fetch and display memes data
+  fetch(API_URL)
       .then(response => response.json())
-      .then(memes => {
-        displayMemes(memes);
-      });
-  }
-  
-  // Display memes on the page
+      .then(memes => displayMemes(memes));
+
   function displayMemes(memes) {
-    const container = document.querySelector('.window-container');
-    container.innerHTML = '<h2>Memes</h2>';
-    memes.forEach(meme => {
-      const memeDiv = document.createElement('div');
-      memeDiv.classList.add('meme');
-      memeDiv.innerHTML = `
-        <img src="${meme.image}" alt="Meme">
-        <p>Posted by: ${meme.user}</p>
-        <p>Likes: <span class="like-count">${meme.likes}</span></p>
-        <button class="like-button">Like</button>
-      `;
-      container.appendChild(memeDiv);
-  
-      const likeButton = memeDiv.querySelector('.like-button');
-      likeButton.addEventListener('click', () => {
-        meme.likes += 1;
-        memeDiv.querySelector('.like-count').textContent = meme.likes;
-        updateMemeLikes(meme);
-      });
-    });
+      memeList.innerHTML = memes.map(meme =>
+          `<div class="meme" data-id="${meme.id}">
+              <h3>${meme.title}</h3>
+              <video src="${meme.url}" controls></video>
+              <button class="edit">Edit</button>
+              <button class="delete">Delete</button>
+          </div>`
+      ).join('');
   }
-  
-  // Update meme likes on the server
-  function updateMemeLikes(meme) {
-    fetch(`http://localhost:3000/memes/${meme.id}`, {
-      method: 'PATCH',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({ likes: meme.likes })
-    });
-  }
-  
-  // Fetch videos from the server
-  function fetchVideos() {
-    fetch('http://localhost:3000/videos')
+
+  // Adds new meme
+  memeForm.addEventListener('submit', (e) => {
+      e.preventDefault(); // Submission behaviour is not altered
+
+      // Create a new meme object
+      const newMeme = {
+          title: titleInput.value,
+          url: urlInput.value
+      };
+
+      fetch(API_URL, {
+          method: 'POST',
+          headers: {
+              'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(newMeme)
+      })
       .then(response => response.json())
-      .then(videos => {
-        displayVideos(videos);
+      .then(meme => {
+          memeList.innerHTML += `
+              <div class="meme" data-id="${meme.id}">
+                  <h3>${meme.title}</h3>
+                  <video src="${meme.url}" controls></video>
+                  <button class="edit">Edit</button>
+                  <button class="delete">Delete</button>
+              </div>`;
+          titleInput.value = '';
+          urlInput.value = '';
       });
-  }
-  
-  // Display videos on the page
-  function displayVideos(videos) {
-    const container = document.querySelector('.window-container');
-    container.innerHTML += '<h2>Videos</h2>';
-    videos.forEach(video => {
-      const videoDiv = document.createElement('div');
-      videoDiv.classList.add('video');
-      videoDiv.innerHTML = `
-        <a href="${video.url}" target="_blank">${video.title}</a>
-        <p>Likes: <span class="like-count">${video.likes}</span></p>
-        <button class="like-button">Like</button>
-      `;
-      container.appendChild(videoDiv);
-  
-      const likeButton = videoDiv.querySelector('.like-button');
-      likeButton.addEventListener('click', () => {
-        video.likes += 1;
-        videoDiv.querySelector('.like-count').textContent = video.likes;
-        updateVideoLikes(video);
-      });
-    });
-  }
-  
-  // Update video likes on the server
-  function updateVideoLikes(video) {
-    fetch(`http://localhost:3000/videos/${video.id}`, {
-      method: 'PATCH',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({ likes: video.likes })
-    });
-  }
-  
-  // Toggle dark/light theme
-  function toggleTheme() {
-    document.body.classList.toggle('dark-theme');
-  }
-  
+  });
+
+  // Edit and delete memes
+  memeList.addEventListener('click', (e) => {
+
+    // New variable created
+      const memeDiv = e.target.closest('.meme');
+      const id = memeDiv.dataset.id;
+
+      if (e.target.classList.contains('edit')) {
+          const title = memeDiv.querySelector('h3').innerText;
+          const url = memeDiv.querySelector('video').src;
+          titleInput.value = title;
+          urlInput.value = url;
+
+          memeForm.onsubmit = (e) => {
+              e.preventDefault();
+              const updatedMeme = {
+                  title: titleInput.value,
+                  url: urlInput.value
+              };
+              fetch(`${API_URL}/${id}`, {
+                  method: 'PATCH',
+                  headers: {
+                      'Content-Type': 'application/json'
+                  },
+                  body: JSON.stringify(updatedMeme)
+              })
+              .then(response => response.json())
+              .then(() => {
+                  memeDiv.querySelector('h3').innerText = updatedMeme.title;
+                  memeDiv.querySelector('video').src = updatedMeme.url;
+                  titleInput.value = '';
+                  urlInput.value = '';
+                  memeForm.onsubmit = null; // Remove onsubmit handler
+              });
+          };
+      }
+
+      if (e.target.classList.contains('delete')) {
+          fetch(`${API_URL}/${id}`, {
+              method: 'DELETE'
+          })
+          .then(() => {
+              memeDiv.remove();
+          });
+      }
+  });
+});

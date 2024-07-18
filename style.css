@@ -1,5 +1,7 @@
 * {
     margin: 0;
+    padding: 0;
+    box-sizing: border-box ;
 }
 
 body {
@@ -10,6 +12,10 @@ body {
 height: 50px;
 width: 100%;
 background-color: black;
+position: fixed;
+top: 0;
+left: 0;
+z-index: 1000;
 }
 
 .navbar-container {
@@ -35,6 +41,7 @@ background-color: black;
 .main-menu-container {
     flex: 5;
     height: 32px;
+    display: flex;
     justify-content: space-around;
     background-color: rgb(211, 6, 6);
 }
@@ -130,4 +137,62 @@ background-color: black;
 
 .main-window {
     height: 50vh;
+}
+
+.form-container {
+    background-color: aqua;
+   display: flex;
+    justify-content: space-around;
+    background-color: #f4f4f4;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+
+#meme-form input,
+#meme-form button {
+    display: block;
+    width: 50%;
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#meme-form button {
+    background-color: #333;
+    color: #fff;
+    cursor: pointer;
+}
+
+.meme-list {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.meme {
+    background-color: #151515;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px;
+    width: calc(33.333% - 20px);
+    box-sizing: border-box;
+}
+
+.meme video {
+    width: 100%;
+    height: auto;
+}
+
+.meme button {
+    display: block;
+    width: 100%;
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
 }

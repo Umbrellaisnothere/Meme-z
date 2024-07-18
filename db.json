@@ -1,32 +1,39 @@
 {
-    "memes": [
-      {
-        "id": 1,
-        "user": "User1",
-        "image": "https://via.placeholder.com/150",
-        "likes": 10
-      },
-      {
-        "id": 2,
-        "user": "User2",
-        "image": "https://via.placeholder.com/150",
-        "likes": 20
-      }
-    ],
-    
-    "videos": [
-      {
-        "id": 1,
-        "title": "Funny Video 1",
-        "url": "https://www.example.com/video1",
-        "likes": 5
-      },
-      {
-        "id": 2,
-        "title": "Funny Video 2",
-        "url": "https://www.example.com/video2",
-        "likes": 15
-      }
-    ]
-  }
-  
+  "memes": [
+    {
+      "id": 1,
+      "title": "Stop It",
+      "url": "memes/Stop It. Get Some Help.mp4"
+    },
+    {
+      "id": 2,
+      "title": "Why are you running",
+      "url": "memes/Why are you running.mp4"
+    },
+    {
+      "id": 3,
+      "title": "Wait a minute",
+      "url": "memes/wait a minute who are you.mp4"
+    },
+    {
+      "id": 4,
+      "title": "Throwing PC",
+      "url": "memes/THROWING COMPUTER.mp4"
+    },
+    {
+      "id": 5,
+      "title": "Ouch",
+      "url": "memes/That hurts.mp4"
+    },
+    {
+      "id": 6,
+      "title": "Stuck Up",
+      "url": "memes/Stuck Up.mp4"
+    },
+    {
+      "id": 7,
+      "title": "Success",
+      "url": "memes/Success.mp4"
+    }
+  ]
+}
