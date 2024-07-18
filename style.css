@@ -127,3 +127,7 @@ background-color: black;
     color: aliceblue;
     margin-left: 50px;
 } 
+
+.main-window {
+    height: 50vh;
+}
