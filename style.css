@@ -12,7 +12,7 @@ body {
 height: 50px;
 width: 100%;
 background-color: black;
-position: fixed;
+/* position: fixed; */
 top: 0;
 left: 0;
 z-index: 1000;
@@ -21,7 +21,6 @@ z-index: 1000;
 .navbar-container {
     display: flex;
     align-items: center;
-    /* background-color: whitesmoke; */
     padding: 0 50px;
     height: 100%;
 }
@@ -140,8 +139,8 @@ z-index: 1000;
 }
 
 .form-container {
-    background-color: aqua;
-   display: flex;
+    /* background-color: aqua; */
+    display: flex;
     justify-content: space-around;
     background-color: #f4f4f4;
     padding: 20px;
@@ -166,6 +165,7 @@ z-index: 1000;
 }
 
 .meme-list {
+    color: whitesmoke;
     display: flex;
     flex-wrap: wrap;
 }

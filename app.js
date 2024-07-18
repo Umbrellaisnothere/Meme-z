@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const memeForm = document.getElementById('meme-form');
   const titleInput = document.getElementById('title');
   const urlInput = document.getElementById('url');
-  
+
   const API_URL = 'http://localhost:3000/memes';
 
   // Fetch and display memes data
@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Adds new meme
   memeForm.addEventListener('submit', (e) => {
-      e.preventDefault(); // Submission behaviour is not altered
+      e.preventDefault(); // Submission behavior is not altered
 
       // Create a new meme object
       const newMeme = {

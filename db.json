@@ -34,6 +34,26 @@
       "id": 7,
       "title": "Success",
       "url": "memes/Success.mp4"
+    },
+    {
+        "id": 8,
+        "title": "Oh my God Wow!",
+        "url": "memes/Oh My God Wow.mp4"
+    },
+    {
+        "id": 9,
+        "title": "Oh Hell no!",
+        "url": "memes/Oh Hell No.mp4"
+    },
+    {
+        "id": 10,
+        "title": "Don't Know",
+        "url": "memes/I Don_t Know.mp4"
+    },
+    {
+        "id": 11,
+        "title": "Screaming Goat",
+        "url": "memes/Goat.mp4"
     }
   ]
 }
