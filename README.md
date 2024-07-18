@@ -1,15 +1,17 @@
 # Phase 1 Project
 -----
 # Meme-z
+
 ## Description
 
-- Meme-z is a mini-web application that allows any user to upload a short, 5 to 45 second(s) video(s) or clip(s).
-<!-- might change the above description -->
+- Meme-z is a mini-web application that allows any user to upload a short video or clip which involves memes.
+
 
 ## Features
 Some of its features include: 
 
 - Can display a list of memes.
+
 - A user can add a new meme.
 
 __Fill in the title and video URL in the form__.
@@ -17,7 +19,16 @@ __Fill in the title and video URL in the form__.
 __Click "Add Meme" to add the meme to the list__.
 
 - A user can edit an existing meme.
+
 - A user can delete a meme.
+
+## System Requirements
+- Have a version of Node 18 or Above.
+- A browser capable of running JavaScript, example: Chrome, Safari, Firefox or Edge.
+- An updated Operating System, example: Windows 10 or Above, MacOS, Linux, etc.
+- A text editor that is capable of running JavaScript (Visual Studio Code, Vim, Nano, Emacs, Atom, Sublime Text, etc.)
+- A RAM that is equal to or above 4 GB.
+- A diskspace equal to or greater than 1 GB.
 
 ## Setup
 
@@ -51,5 +62,13 @@ NB :- If you do not have json-server on your **global namespace** install it by 
 - PATCH /memes/:id - Update a meme by ID
 - DELETE /memes/:id - Delete a meme by ID
 
+## Meme-z link
+[Link]()
+
+# Author
+This project  was contributed to by;
+
+- [Keith Murimi](https://github.com/Umbrellaisnothere).
 
 - Meme-z is a small project that is inspired by an average meme uploader!
+
