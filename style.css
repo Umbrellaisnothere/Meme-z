@@ -62,7 +62,6 @@ z-index: 1000;
 
 .profile-container {
     flex: 2;
-    
     display: flex;
     background-color: green;
     align-items: center;
@@ -108,11 +107,12 @@ z-index: 1000;
 }
 
 .sidebar {
-    z-index: -1;
+    /* z-index: -1; */
     height: 100%;
     width: 50px;
     position: fixed;
     top: 0; /* keeps the sidebar from scrolling */
+    left: 0;
     background-color: black;
     align-items: center;
     display:flex; 
@@ -123,12 +123,16 @@ z-index: 1000;
 .sidebar-icon {
     color: aliceblue;
     font-size: 25px;
-    margin-bottom: 80px;
+    margin: 80px 0;
+    cursor: pointer;
 }
 
 .container {
     background-color: #151515;
     height: calc(100vh - 50px);
+    margin-left: 50px; /* Offsetting by sidebar width */
+    padding-top: 50px; /* Offsetting by navbar height */
+    overflow-y: auto;
 }
 
 .window-container {
@@ -145,7 +149,7 @@ z-index: 1000;
 }
 
 .container {
-    z-index: 1;
+    /* z-index: 1; */
 }
 
 .form-container {
