@@ -8,6 +8,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const API_URL = 'http://localhost:3000/memes';
 
+  // 
+  const ball = document.querySelector(".toggle-ball-light");
+  const items = document.querySelectorAll(".container, .menu-list-items, .navbar-container, .sidebar, .sidebar-icon, .toggle")
+
+  ball.addEventListener("click", () => {
+    items.forEach(item => item.classList.toggle("active"));
+    ball.classList.toggle("active");
+  })
+
   // Fetch and display memes data
   fetch(API_URL)
       .then(response => response.json())
