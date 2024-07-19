@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const titleInput = document.getElementById('title');
   const urlInput = document.getElementById('url');
 
-  const API_URL = 'http://localhost:3000/memes';
+  const API_URL = 'https://meme-z-backend.vercel.app/memes';
 
   // 
   const ball = document.querySelector(".toggle-ball-light");
